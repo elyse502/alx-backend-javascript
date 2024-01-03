@@ -629,7 +629,7 @@ Finally, write a function named `iterateThroughObject`. The function’s paramet
 
  }
  ```
-It should return every employee name in a string, separated by |
+It should return every employee name in a string, separated by `|`
 ```groovy
 {
   allEmployees: {

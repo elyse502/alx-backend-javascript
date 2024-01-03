@@ -99,6 +99,7 @@ module.exports = {
 **`utils.js`**
 
 Use when you get to tasks requiring `uploadPhoto` and `createUser`.
+
 File contents:
 ```groovy
 

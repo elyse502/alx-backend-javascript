@@ -182,18 +182,144 @@ Don’t forget to run `$ npm install` when you have the `package.json`
 }
 ```
 
+# Tasks 📃
+## 0. Keep every promise you make and only make promises you can keep: [0-promise.js](0-promise.js)
+Return a Promise using this prototype `function getResponseFromAPI()`
+```groovy
+bob@dylan:~$ cat 0-main.js
+import getResponseFromAPI from "./0-promise.js";
 
+const response = getResponseFromAPI();
+console.log(response instanceof Promise);
 
+bob@dylan:~$ 
+bob@dylan:~$ npm run dev 0-main.js 
+true
+bob@dylan:~$ 
+```
 
+## 1. Don't make a promise...if you know you can't keep it: [1-promise.js](1-promise.js)
+Using the prototype below, return a `promise`. The parameter is a `boolean`.
+```groovy
+getFullResponseFromAPI(success)
+```
+When the argument is:
+* `true`
+  * resolve the promise by passing an object with 2 attributes:
+    * `status`: `200`
+    * `body`: `'Success'`
+* `false`
+  * reject the promise with an error object with the message `The fake API is not working currently`
 
+Try testing it out for yourself
+```groovy
+bob@dylan:~$ cat 1-main.js
+import getFullResponseFromAPI from './1-promise';
 
+console.log(getFullResponseFromAPI(true));
+console.log(getFullResponseFromAPI(false));
 
+bob@dylan:~$ 
+bob@dylan:~$ npm run dev 1-main.js 
+Promise { { status: 200, body: 'Success' } }
+Promise {
+  <rejected> Error: The fake API is not working currently
+    ...
+    ...
+bob@dylan:~$ 
+```
 
+## 2. Catch me if you can!: [2-then.js](2-then.js)
+Using the function prototype below
+```groovy
+function handleResponseFromAPI(promise)
+```
+Append three handlers to the function:
+* When the Promise resolves, return an object with the following attributes
+  * `status`: `200`
+  * `body`: `success`
+* When the Promise rejects, return an empty `Error` object
+* For every resolution, log `Got a response from the API` to the console
+```groovy
+bob@dylan:~$ cat 2-main.js
+import handleResponseFromAPI from "./2-then";
 
+const promise = Promise.resolve();
+handleResponseFromAPI(promise);
 
+bob@dylan:~$ 
+bob@dylan:~$ npm run dev 2-main.js 
+Got a response from the API
+bob@dylan:~$
+```
 
+## 3. Handle multiple successful promises: [3-all.js](3-all.js)
+In this file, `import uploadPhoto` and `createUser` from `utils.js`
 
+Knowing that the functions in `utils.js` return promises, use the prototype below to collectively resolve all promises and log `body firstName lastName` to the console.
+```groovy
+function handleProfileSignup()
+```
+In the event of an error, log `Signup system offline` to the console
+```groovy
+bob@dylan:~$ cat 3-main.js
+import handleProfileSignup from "./3-all";
 
+handleProfileSignup();
+
+bob@dylan:~$ 
+bob@dylan:~$ npm run dev 3-main.js 
+photo-profile-1 Guillaume Salva
+bob@dylan:~$
+```
+## 4. Simple promise: [4-user-promise.js](4-user-promise.js)
+Using the following prototype
+```groovy
+function signUpUser(firstName, lastName) {
+}
+```
+That returns a resolved promise with this object:
+```groovy
+{
+  firstName: value,
+  lastName: value,
+}
+```
+```groovy
+bob@dylan:~$ cat 4-main.js
+import signUpUser from "./4-user-promise";
+
+console.log(signUpUser("Bob", "Dylan"));
+
+bob@dylan:~$ 
+bob@dylan:~$ npm run dev 4-main.js 
+Promise { { firstName: 'Bob', lastName: 'Dylan' } }
+bob@dylan:~$
+```
+
+## 5. Reject the promises: [5-photo-reject.js](5-photo-reject.js)
+Write and export a function named `uploadPhoto`. It should accept one argument `fileName` (string).
+
+The function should return a Promise rejecting with an Error and the string `$fileName cannot be processed`
+```groovy
+export default function uploadPhoto(filename) {
+
+}
+```
+```groovy
+bob@dylan:~$ cat 5-main.js
+import uploadPhoto from './5-photo-reject';
+
+console.log(uploadPhoto('guillaume.jpg'));
+
+bob@dylan:~$ 
+bob@dylan:~$ npm run dev 5-main.js 
+Promise {
+  <rejected> Error: guillaume.jpg cannot be processed
+  ..
+    ..
+bob@dylan:~$
+```
 
 
 

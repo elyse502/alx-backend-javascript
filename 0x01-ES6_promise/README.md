@@ -321,31 +321,164 @@ Promise {
 bob@dylan:~$
 ```
 
+## 6. Handle multiple promises: [6-final-user.js](6-final-user.js)
+Import `signUpUser` from `4-user-promise.js` and `uploadPhoto` from `5-photo-reject.js`.
 
+Write and export a function named `handleProfileSignup`. It should accept three arguments `firstName` (string), `lastName` (string), and fileName (string). The function should call the two other functions. When the promises are all settled it should return an array with the following structure:
+```groovy
+[
+    {
+      status: status_of_the_promise,
+      value: value or error returned by the Promise
+    },
+    ...
+  ]
+```
+```groovy
+bob@dylan:~$ cat 6-main.js
+import handleProfileSignup from './6-final-user';
 
+console.log(handleProfileSignup("Bob", "Dylan", "bob_dylan.jpg"));
 
+bob@dylan:~$ 
+bob@dylan:~$ npm run dev 6-main.js 
+Promise { <pending> }
+bob@dylan:~$ 
+```
 
+## 7. Load balancer: [7-load_balancer.js](7-load_balancer.js)
+Write and export a function named `loadBalancer`. It should accept two arguments `chinaDownload` (Promise) and `USDownload` (Promise).
 
+The function should return the value returned by the promise that resolved the first.
+```
+export default function loadBalancer(chinaDownload, USDownload) {
+```
+```groovy
+}
+bob@dylan:~$ cat 7-main.js
+import loadBalancer from "./7-load_balancer";
 
+const ukSuccess = 'Downloading from UK is faster';
+const frSuccess = 'Downloading from FR is faster';
 
+const promiseUK = new Promise(function(resolve, reject) {
+    setTimeout(resolve, 100, ukSuccess);
+});
 
+const promiseUKSlow = new Promise(function(resolve, reject) {
+    setTimeout(resolve, 400, ukSuccess);
+});
 
+const promiseFR = new Promise(function(resolve, reject) {
+    setTimeout(resolve, 200, frSuccess);
+});
 
+const test = async () => {
+    console.log(await loadBalancer(promiseUK, promiseFR));
+    console.log(await loadBalancer(promiseUKSlow, promiseFR));
+}
 
+test();
 
+bob@dylan:~$ 
+bob@dylan:~$ npm run dev 7-main.js 
+Downloading from UK is faster
+Downloading from FR is faster
+bob@dylan:~$
+```
 
+## 8. Throw error / try catch: [8-try.js](8-try.js)
+Write a function named `divideFunction` that will accept two arguments: `numerator` (Number) and `denominator` (Number).
 
+When the `denominator` argument is equal to 0, the function should throw a new error with the message `cannot divide by 0`. Otherwise it should return the numerator divided by the denominator.
+```groovy
+export default function divideFunction(numerator, denominator) {
 
+}
+```
+```groovy
+bob@dylan:~$ cat 8-main.js
+import divideFunction from './8-try';
 
+console.log(divideFunction(10, 2));
+console.log(divideFunction(10, 0));
 
+bob@dylan:~$ 
+bob@dylan:~$ npm run dev 8-main.js 
+5
+..../8-try.js:15
+  throw Error('cannot divide by 0');
+  ^
+.....
 
+bob@dylan:~$
+```
 
+## 9. Throw an error: [9-try.js](9-try.js)
+Write a function named `guardrail` that will accept one argument `mathFunction` (Function).
 
+This function should create and return an array named `queue`.
 
+When the `mathFunction` function is executed, the value returned by the function should be appended to the queue. If this function throws an error, the error message should be appended to the queue. In every case, the message `Guardrail was processed` should be added to the queue.
 
+Example:
+```groovy
+[
+  1000,
+  'Guardrail was processed',
+]
+```
+```groovy
+bob@dylan:~$ cat 9-main.js
+import guardrail from './9-try';
+import divideFunction from './8-try';
 
+console.log(guardrail(() => { return divideFunction(10, 2)}));
+console.log(guardrail(() => { return divideFunction(10, 0)}));
 
+bob@dylan:~$ 
+bob@dylan:~$ npm run dev 9-main.js 
+[ 5, 'Guardrail was processed' ]
+[ 'Error: cannot divide by 0', 'Guardrail was processed' ]
+bob@dylan:~$ 
+```
 
+## 10. Await / Async: [100-await.js](100-await.js)
+Import `uploadPhoto` and `createUser` from `utils.js`
+
+Write an async function named `asyncUploadUser` that will call these two functions and return an object with the following format:
+```groovy
+{
+  photo: response_from_uploadPhoto_function,
+  user: response_from_createUser_function,
+}
+```
+If one of the async function fails, return an empty object. Example:
+```groovy
+{
+  photo: null,
+  user: null,
+}
+```
+```groovy
+bob@dylan:~$ cat 100-main.js
+import asyncUploadUser from "./100-await";
+
+const test = async () => {
+    const value = await asyncUploadUser();
+    console.log(value);
+};
+
+test();
+
+bob@dylan:~$ 
+bob@dylan:~$ npm run dev 100-main.js 
+{
+  photo: { status: 200, body: 'photo-profile-1' },
+  user: { firstName: 'Guillaume', lastName: 'Salva' }
+}
+bob@dylan:~$
+```
 
 
 

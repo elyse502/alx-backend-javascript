@@ -353,9 +353,9 @@ Write and export a function named `loadBalancer`. It should accept two arguments
 The function should return the value returned by the promise that resolved the first.
 ```
 export default function loadBalancer(chinaDownload, USDownload) {
+}
 ```
 ```groovy
-}
 bob@dylan:~$ cat 7-main.js
 import loadBalancer from "./7-load_balancer";
 

@@ -360,21 +360,328 @@ bob@dylan:~$ npm run dev 5-main.js
 bob@dylan:~$
 ```
 
+## 6. Take advantage of template literals: [6-string-interpolation.js](6-string-interpolation.js)
+Rewrite the return statement to use a template literal so you can the substitute the variables you’ve defined.
+```groovy
+export default function getSanFranciscoDescription() {
+  const year = 2017;
+  const budget = {
+    income: '$119,868',
+    gdp: '$154.2 billion',
+    capita: '$178,479',
+  };
+
+  return 'As of ' + year + ', it was the seventh-highest income county in the United States'
+        / ', with a per capita personal income of ' + budget.income + '. As of 2015, San Francisco'
+        / ' proper had a GDP of ' + budget.gdp + ', and a GDP per capita of ' + budget.capita + '.';
+}
+```
+Execution:
+```groovy
+bob@dylan:~$ cat 6-main.js
+import getSanFranciscoDescription from './6-string-interpolation.js';
+
+console.log(getSanFranciscoDescription());
+
+bob@dylan:~$
+bob@dylan:~$ npm run dev 6-main.js 
+As of 2017, it was the seventh-highest income county in the United States, with a per capita personal income of $119,868. As of 2015, San Francisco proper had a GDP of $154.2 billion, and a GDP per capita of $178,479.
+bob@dylan:~$
+```
+
+## 7. Object property value shorthand syntax: [7-getBudgetObject.js](7-getBudgetObject.js)
+Notice how the keys and the variable names are the same?
+
+Modify the following function’s `budget` object to simply use the keyname instead.
+```groovy
+export default function getBudgetObject(income, gdp, capita) {
+  const budget = {
+    income: income,
+    gdp: gdp,
+    capita: capita,
+  };
+
+  return budget;
+}
+```
+Execution:
+```groovy
+bob@dylan:~$ cat 7-main.js
+import getBudgetObject from './7-getBudgetObject.js';
+
+console.log(getBudgetObject(400, 700, 900));
+
+bob@dylan:~$
+bob@dylan:~$ npm run dev 7-main.js 
+{ income: 400, gdp: 700, capita: 900 }
+bob@dylan:~$
+```
+
+## 8. No need to create empty objects before adding in properties: [8-getBudgetCurrentYear.js](8-getBudgetCurrentYear.js)
+Rewrite the `getBudgetForCurrentYear` function to use ES6 computed property names on the `budget` object
+```groovy
+function getCurrentYear() {
+  const date = new Date();
+  return date.getFullYear();
+}
+
+export default function getBudgetForCurrentYear(income, gdp, capita) {
+  const budget = {};
+
+  budget[`income-${getCurrentYear()}`] = income;
+  budget[`gdp-${getCurrentYear()}`] = gdp;
+  budget[`capita-${getCurrentYear()}`] = capita;
+
+  return budget;
+}
+```
+Execution:
+```groovy
+bob@dylan:~$ cat 8-main.js
+import getBudgetForCurrentYear from './8-getBudgetCurrentYear.js';
+
+console.log(getBudgetForCurrentYear(2100, 5200, 1090));
+
+bob@dylan:~$
+bob@dylan:~$ npm run dev 8-main.js 
+{ 'income-2021': 2100, 'gdp-2021': 5200, 'capita-2021': 1090 }
+bob@dylan:~$
+```
+
+## 9. ES6 method properties
+Rewrite `getFullBudgetObject` to use ES6 method properties in the `fullBudget` object
+```groovy
+import getBudgetObject from './7-getBudgetObject.js';
+
+export default function getFullBudgetObject(income, gdp, capita) {
+  const budget = getBudgetObject(income, gdp, capita);
+  const fullBudget = {
+    ...budget,
+    getIncomeInDollars: function (income) {
+      return `$${income}`;
+    },
+    getIncomeInEuros: function (income) {
+      return `${income} euros`;
+    },
+  };
+
+  return fullBudget;
+}
+```
+Execution:
+```groovy
+bob@dylan:~$ cat 9-main.js
+import getFullBudgetObject from './9-getFullBudget.js';
+
+const fullBudget = getFullBudgetObject(20, 50, 10);
+
+console.log(fullBudget.getIncomeInDollars(fullBudget.income));
+console.log(fullBudget.getIncomeInEuros(fullBudget.income));
+
+bob@dylan:~$
+bob@dylan:~$ npm run dev 9-main.js 
+$20
+20 euros
+bob@dylan:~$
+```
+
+## 10. For...of Loops: [10-loops.js](10-loops.js)
+Rewrite the function `appendToEachArrayValue` to use ES6’s `for...of` operator. And don’t forget that `var` is not ES6-friendly.
+```groovy
+export default function appendToEachArrayValue(array, appendString) {
+  for (var idx in array) {
+    var value = array[idx];
+    array[idx] = appendString + value;
+  }
+
+  return array;
+}
+```
+Execution:
+```groovy
+bob@dylan:~$ cat 10-main.js
+import appendToEachArrayValue from './10-loops.js';
+
+console.log(appendToEachArrayValue(['appended', 'fixed', 'displayed'], 'correctly-'));
+
+bob@dylan:~$
+bob@dylan:~$ npm run dev 10-main.js 
+[ 'correctly-appended', 'correctly-fixed', 'correctly-displayed' ]
+bob@dylan:~$
+```
+
+## 11. Iterator: [11-createEmployeesObject.js](11-createEmployeesObject.js)
+Write a function named `createEmployeesObject` that will receive two arguments:
+* `departmentName` (String)
+* `employees` (Array of Strings)
+```groovy
+export default function createEmployeesObject(departmentName, employees) {
+
+}
+```
+The function should return an object with the following format:
+```groovy
+{
+     $departmentName: [
+          $employees,
+     ],
+}
+```
+Execution:
+```groovy
+bob@dylan:~$ cat 11-main.js
+import createEmployeesObject from './11-createEmployeesObject.js';
+
+console.log(createEmployeesObject("Software", [ "Bob", "Sylvie" ]));
+
+bob@dylan:~$
+bob@dylan:~$ npm run dev 11-main.js 
+{ Software: [ 'Bob', 'Sylvie' ] }
+bob@dylan:~$
+```
+
+## 12. Let's create a report object: [12-createReportObject.js](12-createReportObject.js)
+Write a function named `createReportObject` whose parameter, `employeesList`, is the return value of the previous function `createEmployeesObject`.
+```groovy
+export default function createReportObject(employeesList) {
+
+}
+```
+`createReportObject` should return an object containing the key `allEmployees` and a method property called `getNumberOfDepartments`.
+
+`allEmployees` is a key that maps to an object containing the department name and a list of all the employees in that department. If you’re having trouble, use the spread syntax.
+
+The method property receives `employeesList` and returns the number of departments. I would suggest suggest thinking back to the ES6 method property syntax.
+```groovy
+{
+  allEmployees: {
+     engineering: [
+          'John Doe',
+          'Guillaume Salva',
+     ],
+  },
+};
+```
+Execution:
+```groovy
+bob@dylan:~$ cat 12-main.js
+import createEmployeesObject from './11-createEmployeesObject.js';
+import createReportObject from './12-createReportObject.js';
+
+const employees = {
+    ...createEmployeesObject('engineering', ['Bob', 'Jane']),
+    ...createEmployeesObject('marketing', ['Sylvie'])
+};      
+
+const report = createReportObject(employees);
+console.log(report.allEmployees);
+console.log(report.getNumberOfDepartments(report.allEmployees));
+
+bob@dylan:~$
+bob@dylan:~$ npm run dev 12-main.js 
+{ engineering: [ 'Bob', 'Jane' ], marketing: [ 'Sylvie' ] }
+2
+bob@dylan:~$
+```
+
+## 13. Iterating through report objects: [100-createIteratorObject.js](100-createIteratorObject.js)
+Write a function named `createIteratorObject`, that will take into argument a report Object created with the previous function `createReportObject`.
+
+This function will return an iterator to go through every employee in every department.
+```groovy
+export default function createIteratorObject(report) {
+
+}
+```
+Execution:
+```groovy
+bob@dylan:~$ cat 100-main.js
+import createIteratorObject from "./100-createIteratorObject.js";
+
+import createEmployeesObject from './11-createEmployeesObject.js';
+import createReportObject from './12-createReportObject.js';
+
+const employees = {
+    ...createEmployeesObject('engineering', ['Bob', 'Jane']),
+    ...createEmployeesObject('marketing', ['Sylvie'])
+};
+
+const report = createReportObject(employees);
+
+const reportWithIterator = createIteratorObject(report);
+
+for (const item of reportWithIterator) {
+    console.log(item);
+}
+
+bob@dylan:~$
+bob@dylan:~$ npm run dev 100-main.js 
+Bob
+Jane
+Sylvie
+bob@dylan:~$
+```
+
+## 14. Iterate through object: [101-iterateThroughObject.js](101-iterateThroughObject.js)
+Finally, write a function named `iterateThroughObject`. The function’s parameter `reportWithIterator` is the return value from `createIteratorObject`.
+```groovy
+ export default function iterateThroughObject(reportWithIterator) {
+
+ }
+ ```
+It should return every employee name in a string, separated by |
+```groovy
+{
+  allEmployees: {
+     engineering: [
+          'John Doe',
+          'Guillaume Salva',
+     ],
+  },
+  ...
+};
+```
+Should return `John Doe | Guillaume Salva`
+
+Reminder - the functions will be imported by the test suite.
+
+Full example:
+```groovy
+> employees = {
+      ...createEmployeesObject('engineering', engineering),
+      ...createEmployeesObject('design', design),
+    };
+>
+> const report = createReportObject(employees);
+> const reportWithIterator = createIteratorObject(report);
+> iterateThroughObject(reportWithIterator)
+'John Doe | Guillaume Salva | Kanye East | Jay Li'
+>
+```
+Execution:
+```groovy
+bob@dylan:~$ cat 101-main.js
+import createEmployeesObject from "./11-createEmployeesObject.js";
+import createReportObject from './12-createReportObject.js';
+import createIteratorObject from './100-createIteratorObject.js';
+import iterateThroughObject from './101-iterateThroughObject.js';
 
 
+const employees = {
+    ...createEmployeesObject('engineering', ['Bob', 'Jane']),
+    ...createEmployeesObject('marketing', ['Sylvie'])
+};
 
+const report = createReportObject(employees);
+const reportWithIterator = createIteratorObject(report);
 
+console.log(iterateThroughObject(reportWithIterator));
 
-
-
-
-
-
-
-
-
-
-
+bob@dylan:~$
+bob@dylan:~$ npm run dev 101-main.js 
+Bob | Jane | Sylvie
+bob@dylan:~$
+```
 
 
 

@@ -39,6 +39,8 @@ Screenshot of a passive online linter service `JSON Formatter` to validate a JSO
 * [ESLint - Pluggable JavaScript linter](https://eslint.org/)
 * [pycodestyle - documentation](https://pycodestyle.pycqa.org/en/latest/)
 
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+
 ![08806026ef621f900121](https://github.com/elyse502/alx-backend-javascript/assets/125453474/9addde3f-8461-4a69-8f35-deb69c78fe62)
 
 # Resources🏗️
@@ -179,23 +181,184 @@ module.exports = {
 };
 
 ```
-Finally…
+**Finally…**
 
 Don’t forget to run `npm install` from the terminal of your project folder to install all necessary project dependencies.
 
+# Tasks 📃
+## 0. Const or let?: [0-constants.js](0-constants.js)
+Modify
+* function `taskFirst` to instantiate variables using `const`
+* function `taskNext` to instantiate variables using `let`
+```groovy
+export function taskFirst() {
+  var task = 'I prefer const when I can.';
+  return task;
+}
 
+export function getLast() {
+  return ' is okay';
+}
 
+export function taskNext() {
+  var combination = 'But sometimes let';
+  combination += getLast();
 
+  return combination;
+}
+```
 
+Execution example:
+```groovy
+bob@dylan:~$ cat 0-main.js
+import { taskFirst, taskNext } from './0-constants.js';
 
+console.log(`${taskFirst()} ${taskNext()}`);
 
+bob@dylan:~$ 
+bob@dylan:~$ npm run dev 0-main.js 
+I prefer const when I can. But sometimes let is okay
+bob@dylan:~$ 
+```
 
+## 1. Block Scope: [1-block-scoped.js](1-block-scoped.js)
+Given what you’ve read about `var` and hoisting, modify the variables inside the function `taskBlock` so that the variables aren’t overwritten inside the conditional block.
+```groovy
+export default function taskBlock(trueOrFalse) {
+  var task = false;
+  var task2 = true;
 
+  if (trueOrFalse) {
+    var task = true;
+    var task2 = false;
+  }
 
+  return [task, task2];
+}
+```
 
+Execution:
+```groovy
+bob@dylan:~$ cat 1-main.js
+import taskBlock from './1-block-scoped.js';
 
+console.log(taskBlock(true));
+console.log(taskBlock(false));
+bob@dylan:~$
+bob@dylan:~$ npm run dev 1-main.js 
+[ false, true ]
+[ false, true ]
+bob@dylan:~$
+```
 
+## 2. Arrow functions: [2-arrow.js](2-arrow.js)
+Rewrite the following standard function to use ES6’s arrow syntax of the function `add` (it will be an anonymous function after)
+```groovy
+export default function getNeighborhoodsList() {
+  this.sanFranciscoNeighborhoods = ['SOMA', 'Union Square'];
 
+  const self = this;
+  this.addNeighborhood = function add(newNeighborhood) {
+    self.sanFranciscoNeighborhoods.push(newNeighborhood);
+    return self.sanFranciscoNeighborhoods;
+  };
+}
+```
+Execution:
+```groovy
+bob@dylan:~$ cat 2-main.js
+import getNeighborhoodsList from './2-arrow.js';
+
+const neighborhoodsList = new getNeighborhoodsList();
+const res = neighborhoodsList.addNeighborhood('Noe Valley');
+console.log(res);
+bob@dylan:~$
+bob@dylan:~$ npm run dev 2-main.js 
+[ 'SOMA', 'Union Square', 'Noe Valley' ]
+bob@dylan:~$
+```
+
+## 3. Parameter defaults: [3-default-parameter.js](3-default-parameter.js)
+Condense the internals of the following function to 1 line - without changing the name of each function/variable.
+
+_Hint_: The key here to define default parameter values for the function parameters.
+```groovy
+export default function getSumOfHoods(initialNumber, expansion1989, expansion2019) {
+  if (expansion1989 === undefined) {
+    expansion1989 = 89;
+  }
+
+  if (expansion2019 === undefined) {
+    expansion2019 = 19;
+  }
+  return initialNumber + expansion1989 + expansion2019;
+}
+```
+Execution:
+```groovy
+bob@dylan:~$ cat 3-main.js
+import getSumOfHoods from './3-default-parameter.js';
+
+console.log(getSumOfHoods(34));
+console.log(getSumOfHoods(34, 3));
+console.log(getSumOfHoods(34, 3, 4));
+bob@dylan:~$
+bob@dylan:~$ npm run dev 3-main.js 
+142
+56
+41
+bob@dylan:~$
+```
+
+## 4. Rest parameter syntax for functions: [4-rest-parameter.js](4-rest-parameter.js)
+Modify the following function to return the number of arguments passed to it using the rest parameter syntax
+```groovy
+export default function returnHowManyArguments() {
+
+}
+```
+Example:
+```groovy
+> returnHowManyArguments("Hello", "Holberton", 2020);
+3
+>
+```
+Execution:
+```groovy
+bob@dylan:~$ cat 4-main.js
+import returnHowManyArguments from './4-rest-parameter.js';
+
+console.log(returnHowManyArguments("one"));
+console.log(returnHowManyArguments("one", "two", 3, "4th"));
+bob@dylan:~$
+bob@dylan:~$ npm run dev 4-main.js 
+1
+4
+bob@dylan:~$
+```
+
+## 5. The wonders of spread syntax: [5-spread-operator.js](5-spread-operator.js)
+Using spread syntax, concatenate 2 arrays and each character of a string by modifying the function below. Your function body should be one line long.
+```groovy
+export default function concatArrays(array1, array2, string) {
+}
+```
+Execution:
+```groovy
+bob@dylan:~$ cat 5-main.js
+import concatArrays from './5-spread-operator.js';
+
+console.log(concatArrays(['a', 'b'], ['c', 'd'], 'Hello'));
+
+bob@dylan:~$
+bob@dylan:~$ npm run dev 5-main.js 
+[
+  'a', 'b', 'c',
+  'd', 'H', 'e',
+  'l', 'l', 'o'
+]
+bob@dylan:~$
+```
 
 
 

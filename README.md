@@ -1,7 +1,7 @@
 <p align="center">
 <h2 align="center"><img align="center" src="https://assets.imaginablefutures.com/media/images/ALX_Logo.max-200x150.png" alt="footer" width="150"  height="150"/></h2>
 
-# 0x00 ALX Backend JavaScript 💥
+<h1 align="center">0x00 ALX Backend JavaScript 💥</h1>
 
 > ES6, Promises, Classes, Data Manipulaton, Typescript
 

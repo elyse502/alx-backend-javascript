@@ -6,8 +6,7 @@
 > ES6, Promises, Classes, Data Manipulaton, Typescript
 
 ## About
-
-- This repository consists of Backend JavaScript projects done with [ALX Africa](https://www.alxafrica.com/) Full stack Software Engineering course in partnership with [Holberton School](https://www.holbertonschool.com/) by [Elysée NIYIBIZI](https://github.com/elyse502).
+This repository consists of Backend JavaScript projects done with [ALX Africa](https://www.alxafrica.com/) Full stack Software Engineering course in partnership with [Holberton School](https://www.holbertonschool.com/) by [Elysée NIYIBIZI](https://github.com/elyse502).
 
 ---
 

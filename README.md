@@ -21,7 +21,7 @@ This repository consists of Backend JavaScript projects done with [ALX Africa](h
 You can access everything in here by [forking](https://docs.github.com/en/get-started/quickstart/fork-a-repo) and then [cloning](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) this repository.
 
 ## Support🎉
-_If you like how I present and document my work do me a favor of giving a **Star** ✨ to my repos |&&| a [**Follow**](https://github.com/elyse502) 👥._
+_If you like how I present and document my work do me a favor of giving a **Star** ✨ to my [repos](https://github.com/elyse502?tab=repositories) |&&| a [**Follow**](https://github.com/elyse502) 👥._
 
 ## ⚠️ WARNING!!!
 **_This repo is done as a school assignment. Beware of copying my responses. I recommend you to read resources and come up with your own solutions instead. Feel free to reach out for help!

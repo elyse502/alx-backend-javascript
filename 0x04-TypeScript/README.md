@@ -296,6 +296,129 @@ console.log(createEmployee('$500'));
 Director
 ```
 
+## 6. Creating functions specific to employees: [task_2/js/main.ts](task_2/js/main.ts)
+Write a function `isDirector`:
+
+* it accepts `employee` as an argument
+* it will be used as a type predicate and if the employee is a director
+
+Write a function `executeWork`:
+
+* it accepts `employee` as an argument
+* if the employee is a Director, it will call `workDirectorTasks`
+* if the employee is a Teacher, it will call `workTeacherTasks`
+
+Expected result:
+```groovy
+executeWork(createEmployee(200));
+Getting to work
+executeWork(createEmployee(1000));
+Getting to director tasks
+```
+
+## 7. String literal types: [task_2/js/main.ts](task_2/js/main.ts)
+Write a String literal type named `Subjects` allowing a variable to have the value `Math` or `History` only. Write a function named `teachClass`:
+
+* it takes `todayClass` as an argument
+* it will return the string `Teaching Math` if `todayClass` is `Math`
+* it will return the string `Teaching History` if `todayClass` is `History`
+
+Expected result:
+```groovy
+teachClass('Math');
+Teaching Math
+teachClass('History');
+Teaching History
+```
+## 8. Ambient Namespaces: [task_3/js/main.ts](task_3/js/main.ts), [task_3/js/interface.ts](v), [task_3/js/crud.d.ts](task_3/js/crud.d.ts)
+Create a directory called `task_3` and copy these configuration files into it: `package.json`, `webpack.config.js`, `tsconfig.json`.
+
+The first part of will require that you build an `interface` and a `type`. Inside a file named `interface.ts`:
+
+* Create a type `RowID` and set it equal to `number`
+* Create an interface `RowElement` that contains these 3 fields:
+  * `firstName`: `string`
+  * `lastName`: `string`
+  * `age?`: `number`
+
+You are building the next part of the application architecture. The goal is to save the entities to a database. Because of time constraints, you can’t write a connector to the database, and you decided to download a library called `crud.js`. Copy this file into the `task_3/js` directory.
+
+Here it is
+```groovy
+export function insertRow(row) {
+  console.log('Insert row', row);
+  return Math.floor(Math.random() * Math.floor(1000));
+}
+
+export function deleteRow(rowId) {
+  console.log('Delete row id', rowId);
+  return;
+}
+
+export function updateRow(rowId, row) {
+  console.log(`Update row ${rowId}`, row);
+
+  return rowId;
+}
+```
+Write an ambient file within `task_3/js`, named `crud.d.ts` containing the type declarations for each crud function. At the top of the file import `RowID` and `RowElement` from `interface.ts`.
+
+In `main.ts`
+
+* At the top of the file create a [triple slash directive](https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html) that includes all the dependencies from `crud.d.ts`
+* Import the `rowID` type and `rowElement` from `interface.ts`
+* Import everything from `crud.js` as `CRUD`
+
+Create an object called `row` with the type `RowElement` with the fields set to these values:
+
+* `firstName`: `Guillaume`
+* `lastName`: `Salva`
+
+Create a `const` variable named `newRowID` with the type `RowID` and assign the value the `insertRow` command.
+
+Next, create a `const` variable named `updatedRow` with the type `RowElement` and update `row` with an age field set to `23`
+
+Finally, call the `updateRow` and `deleteRow` commands.
+
+Expected result:
+```groovy
+const obj = {firstName: "Guillaume", lastName: "Salva"};
+CRUD.insertRow(obj)
+// Insert row {firstName: "Guillaume", lastName: "Salva"}
+
+const updatedRow: RowElement = { firstName: "Guillaume", lastName: "Salva", age: 23 };
+CRUD.updateRow(newRowID, updatedRow);
+// Update row 125 {firstName: "Guillaume", lastName: "Salva", age: 23}
+
+CRUD.deleteRow(125);
+// Delete row id 125
+```
+Requirements:
+
+* When running `npm run build`, no TypeScript error should be displayed.
+* Every variable should use TypeScript when possible.
+* The main file and the ambient file should both import the types defined in the interface file.
+* You can easily test your ambient file by looking at the intellisense of your IDE when using the 3rd party functions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

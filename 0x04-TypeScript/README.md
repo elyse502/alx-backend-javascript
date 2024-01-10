@@ -457,35 +457,28 @@ In `task_4/js/subjects`:
   * Write a method named `getAvailableTeacher` that will return a string `Available Teacher: <first name of teacher>`
   * If the teacher doesn’t have any experience in teaching Java, then the method should return a string `No available teacher`
 
+## 10. Update task_4/js/main.ts: [task_4/js/main.ts](task_4/js/main.ts)
+* create and export a constant `cpp` for Cpp Subjects
+* create and export a constant `java` for Java Subjects
+* create and export a constant `react` for React Subjects
+* create and export one Teacher object `cTeacher` with `experienceTeachingC = 10`
+* for Cpp subject, log to the console `C++`, set `cTeacher` as the teacher, call the two methods `getRequirements` and `getAvailableTeacher` and print the strings they return
+* for Java subject, log to the console `Java`, set `cTeacher` as the teacher, call the two methods `getRequirements` and `getAvailableTeacher`, and print the strings they return
+* for React subject, log to the console `React`, set `cTeacher` as the teacher, call the two methods `getRequirements` and `getAvailableTeacher`, and print the strings they return
 
+## 11. Brand convention & Nominal typing: [task_5/js/main.ts](v), [task_5/package.json](task_5/package.json), [task_5/webpack.config.js](task_5/webpack.config.js), [task_5/tsconfig.json](task_5/tsconfig.json)
+Create a directory `task_5` and copy these configuration files into the root of `task_5`: `package.json`, `tsconfig.json`, `webpack.config.js`
 
+Create two interfaces `MajorCredits` and `MinorCredits` in `task_5/js/main.ts`:
 
+* Each interface defines a number named `credits`
+* Add a brand property to each interface in order to uniquely identify each of them
 
+Create two functions named sumMajorCredits and sumMinorCredits in task_5/js/main.ts:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* Each function takes two arguments `subject1` and `subject2`
+* `sumMajorCredits` returns `MajorCredits` value and `sumMinorCredits` returns `MinorCredits` value
+* Each function sums the credits of the two subjects
 
 
 

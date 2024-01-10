@@ -1,4 +1,4 @@
-interface Student {
+interface Students {
   firstName: string,
   lastName: string,
   age: number,

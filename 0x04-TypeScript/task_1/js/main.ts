@@ -26,3 +26,5 @@ class StudentClass {
 
   displayName = () : string => this.firstName;
 }
+
+

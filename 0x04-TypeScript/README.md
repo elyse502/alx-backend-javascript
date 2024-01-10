@@ -480,10 +480,50 @@ Create two functions named `sumMajorCredits` and `sumMinorCredits` in `task_5/js
 * `sumMajorCredits` returns `MajorCredits` value and `sumMinorCredits` returns `MinorCredits` value
 * Each function sums the credits of the two subjects
 
+<div align="center">
 
+# REFERENCE 🗒️
 
+</div>
 
+* **For anyone who wants to know how webpack works and how to run the development server for typescript 👇🏾**
 
+Use this _LINK_ 👉 https://www.freecodecamp.org/news/an-intro-to-webpack-what-it-is-and-how-to-use-it-8304ecdc3c60/ 
 
+* Please who knows how to set up typescript so that i'll be able to test run my code locally before running it with the checker
+  * run this command
+```bsh
+ts-node main.ts
+```
+  * It should display the output of your code
+
+* Make sure you have `ts-node` installed on your machine
+```groovy
+npm install -g ts-node typescript
+```
+## Quick guide to setting up webpack with TypeScript:
+Install packages:
+```bash
+npm install --save-dev webpack webpack-cli typescript ts-loader html-webpack-plugin clean-webpack-plugin fork-ts-checker-webpack-plugin
+```
+
+copy the files from the project in your dir:
+> webpack.config.js, tsconfig.json, .eslintrc.js and package.json
+
+Install dependencies:
+> npm install
+
+1- compile js/main.ts:
+> npx webpack --mode development
+
+that will create a dir called `dist` in your task_x with 2 files: `bundle.js` and `index.html`
+render the html file in your browser to see results
+
+OR
+
+2- run start-dev directly:
+> npm run start-dev
+
+that will serve the app over HTTP on localhost
 
 

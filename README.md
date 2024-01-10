@@ -13,9 +13,8 @@ This repository consists of Backend JavaScript projects done with [ALX Africa](h
 - [0x00](./0x00-ES6_basic) : Introduction to ES6.
 - [0x01](./0x01-ES6_promise) : Promises (how, why, and what).
 - [0x02](./0x02-ES6_classes) : Classes and Metroprogramming.
-<!--
 - [0x03](./0x03-ES6_data_manipulation) : Map, filter and reduce.
-- [0x04](./0x04-TypeScript) : Types, Interfaces, Classes, Functions.-->
+- [0x04](./0x04-TypeScript) : Types, Interfaces, Classes, Functions.
 
 ## Access ℹ️
 You can access everything in here by [forking](https://docs.github.com/en/get-started/quickstart/fork-a-repo) and then [cloning](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) this repository.

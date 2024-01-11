@@ -4,8 +4,9 @@ _For this project, we expect you to look at these concepts:_
 
 * [Modern Javascript](https://intranet.alxswe.com/concepts/541)
 * [Software Linter](https://intranet.alxswe.com/concepts/542)
+* [JavaScript programming](https://intranet.alxswe.com/concepts/852)
 
-# 2. Software Linter
+# 1. Software Linter
 ## Definition
 A software linter also known as a “linter” is a tool used to identify and report potential issues (syntax errors, undeclared variables, etc.) in a program. It can even report convention or style inconsistencies. It does so by highlighting them so that the programmer is aware, so changes can be made. There are a wide variety of linters as well as lint rules for specific programming languages and even for software frameworks.
 
@@ -38,6 +39,21 @@ Screenshot of a passive online linter service `JSON Formatter` to validate a JSO
 * [lint (software) - Wikipedia](https://en.wikipedia.org/wiki/Lint_(software))
 * [ESLint - Pluggable JavaScript linter](https://eslint.org/)
 * [pycodestyle - documentation](https://pycodestyle.pycqa.org/en/latest/)
+
+# 2. JavaScript programming
+Reading:
+
+* [Modern JS](https://github.com/mbeaudru/modern-js-cheatsheet)
+* [JavaScript Fundamentals](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics)
+* [Module patterns](https://darrenderidder.github.io/talks/ModulePatterns/#/)
+* [var, let and const](https://www.youtube.com/watch?v=sjyJBL5fkp8)
+* [Javascript Tutorial](https://www.youtube.com/watch?v=vZBCTc9zHtI)
+* [JavaScript object basics](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics)
+* [Object-oriented JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Classes_in_JavaScript) **read all examples!**
+* [Object prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
+* [Inheritance in JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Classes_in_JavaScript)
+* [Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+* [this/self](https://alistapart.com/article/getoutbindingsituations/)
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 

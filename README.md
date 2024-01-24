@@ -10,6 +10,11 @@ This repository consists of Backend JavaScript projects done with [ALX Africa](h
 
 ---
 
+<div align="center">
+
+# TABLE OF CONTENT 📖
+</div>
+
 - [0x00](./0x00-ES6_basic) : Introduction to ES6.
 - [0x01](./0x01-ES6_promise) : Promises (how, why, and what).
 - [0x02](./0x02-ES6_classes) : Classes and Metroprogramming.

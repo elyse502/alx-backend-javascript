@@ -452,7 +452,7 @@ Inside the file named `full_server/server.js`, create a small Express server:
 * It should use the routes defined in `full_server/routes/index.js`
 * It should use the port `1245`
 
-### 8.6 Update `package.json` (if you are running it from outside the folder full_server)
+### 8.6 Update `package.json` (if you are running it from outside the folder `full_server`)
 If you are starting node from outside of the folder `full_server`, you will have to update the command `dev` by: `nodemon --exec babel-node --presets babel-preset-env ./full_server/server.js ./database.csv`
 
 #### Warning:

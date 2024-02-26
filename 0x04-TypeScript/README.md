@@ -53,8 +53,9 @@ At the end of this project, you are expected to be able to [explain to anyone](h
 Please use these files for the following tasks
 
 **package.json**
-
-File contents:
+<details>
+  <summary>Click to show/hide file contents</summary>
+  
 ```groovy
 
 {
@@ -91,9 +92,12 @@ File contents:
 }
 
 ```
-**.eslintrc.js**
+</details>
 
-File contents:
+**.eslintrc.js**
+<details>
+  <summary>Click to show/hide file contents</summary>
+  
 ```groovy
 
 module.exports =  {
@@ -110,9 +114,12 @@ module.exports =  {
 };
 
 ```
-**tsconfig.json**
+</details>
 
-File contents:
+**tsconfig.json**
+<details>
+  <summary>Click to show/hide file contents</summary>
+  
 ```groovy
 
 {
@@ -129,9 +136,12 @@ File contents:
 }
 
 ```
-**webpack.config.js**
+</details>
 
-File contents:
+**webpack.config.js**
+<details>
+  <summary>Click to show/hide file contents</summary>
+  
 ```groovy
 
 const path = require("path");
@@ -173,6 +183,7 @@ module.exports = {
 };
 
 ```
+</details>
 
 # Tasks 📃
 ## 0. Creating an interface for a student: [task_0/js/main.ts](task_0/js/main.ts), [task_0/package.json](task_0/package.json), [task_0/.eslintrc.js](task_0/.eslintrc.js), [task_0/tsconfig.json](task_0/tsconfig.json), [task_0/webpack.config.js](task_0/webpack.config.js)

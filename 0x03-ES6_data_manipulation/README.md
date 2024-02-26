@@ -49,8 +49,9 @@ in your project directory, install Jest, Babel and ESList by using the supplied 
 Add the files below to your project directory
 
 **`package.json`**
-
-File contents:
+<details>
+  <summary>Click to show/hide file contents</summary>
+  
 ```groovy
 
 {
@@ -74,9 +75,12 @@ File contents:
 }
 
 ```
-**`babel.config.js`**
+</details>
 
-File contents:
+**`babel.config.js`**
+<details>
+  <summary>Click to show/hide file contents</summary>
+  
 ```groovy
 
 module.exports = {
@@ -93,10 +97,12 @@ module.exports = {
 };
 
 ```
+</details>
 
 **`.eslintrc.js`**
-
-File contents:
+<details>
+  <summary>Click to show/hide file contents</summary>
+  
 ```groovy
 
 module.exports = {
@@ -138,6 +144,8 @@ module.exports = {
 };
 
 ```
+</details>
+
 **and…**
 
 Don’t forget to run `$ npm install` when you have the `package.json`

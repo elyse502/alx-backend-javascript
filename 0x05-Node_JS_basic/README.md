@@ -518,8 +518,9 @@ If you want to add test to validate your integration, you will need to add this 
 <div align="center">
 
 # Reference 📚
-## 1. If someone having trouble instaling **`nodejs version 12`**, u can try this : [`⁠cohort-13⁠`](https://discord.com/channels/1148581179084243054/1154353804125409310/1192076672040706058)
 </div>
+
+## 1. If someone having trouble instaling **`nodejs version 12`**, u can try this : [`⁠cohort-13⁠`](https://discord.com/channels/1148581179084243054/1154353804125409310/1192076672040706058)
 
 If you have problem with `ESLINT` for example task5:
 
@@ -556,7 +557,6 @@ close terminal and open new one:
 ```
 
 [![ES6](https://github.com/elyse502/alx-backend-javascript/assets/125453474/48034956-f9a5-4cc1-823b-f369a7da9367)](https://www.youtube.com/watch?v=y-202en_9NA)
-
 
 
 

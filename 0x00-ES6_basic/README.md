@@ -710,7 +710,50 @@ Bob | Jane | Sylvie
 bob@dylan:~$
 ```
 
+---
 
+<div align="center">
+
+# Reference 📚
+</div>
+
+## 1. If someone having trouble instaling **`nodejs version 12`**, u can try this : [`⁠cohort-13⁠`](https://discord.com/channels/1148581179084243054/1154353804125409310/1192076672040706058)
+
+If you have problem with `ESLINT` for example task5:
+
+U can do to check syntax error and fix them 1by1 manualy: 
+ 
+* `npm run lint 5-typed_arrays.js`
+
+You can also try fix them auto, but it may miss something:
+ 
+* `npm run lint -- --fix 5-typed_arrays.js`
+* Make sure u dont push folder `node_modules` to **github**, setup `.gitignore` (**node_modules/**) it will make problem with checker...
+
+## 2. Video guide for [ES6 project](https://github.com/elyse502/alx-backend-javascript/tree/main/0x00-ES6_basic) ✨
+* How install correct node version
+* How setup config files
+* How to install dependencies
+* How to check ESLINT (the one that cause requirement fail)
+* How to read ESLINT Error (from error u can know how to fix it)
+* How run code
+
+**Install `nodejs 12.11.x` (in wsl/docker/anything):**
+
+```groovy
+In terminal put this commands:
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+
+close terminal and open new one:
+
+
+    nvm install 12.11
+    nvm alias default 12.11
+    node -v
+    npm -v
+```
+
+[![ES6](https://github.com/elyse502/alx-backend-javascript/assets/125453474/48034956-f9a5-4cc1-823b-f369a7da9367)](https://www.youtube.com/watch?v=y-202en_9NA)
 
 
 

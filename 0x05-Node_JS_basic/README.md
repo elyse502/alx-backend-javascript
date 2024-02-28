@@ -1,4 +1,4 @@
-# 0x05. NodeJS Basics 
+# 0x05. NodeJS Basics
 
 ![82692897e15d9f03256f](https://github.com/elyse502/alx-backend-javascript/assets/125453474/a311ab23-d921-48c4-8d41-35a0b2729854)
 
@@ -557,6 +557,21 @@ close terminal and open new one:
 ```
 
 [![ES6](https://github.com/elyse502/alx-backend-javascript/assets/125453474/48034956-f9a5-4cc1-823b-f369a7da9367)](https://www.youtube.com/watch?v=y-202en_9NA)
+
+## 3. In Task 8. Organize a complex HTTP server using Express
+Make sure that before you npm run dev, the database path is specified on the dev script inside `package.json` file. Like this 
+```groovy
+"scripts": {
+    "lint": "./node_modules/.bin/eslint",
+    "check-lint": "lint [0-9]*.js",
+    "test": "./node_modules/mocha/bin/mocha --require babel-register --exit",
+    "dev": "nodemon --exec babel-node --presets babel-preset-env ./full_server/server.js ./database.csv"
+  }
+```
+Then you can extract it in your controller using 
+> const Path = process.argv[2]
+
+
 
 
 

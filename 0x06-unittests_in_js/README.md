@@ -390,7 +390,7 @@ In a folder `9-api`, reusing the previous project in `8-api` (`package.json`, `a
 * `:id` must be only a number (validation must be in the route definition)
 * When access, the endpoint should return `Payment methods for cart :id`
 
-**Modify the file api.test.js:**
+**Modify the file `api.test.js`:**
 
 * Add a new test suite for the cart page:
   * Correct status code when `:id` is a number?

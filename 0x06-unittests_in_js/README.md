@@ -494,7 +494,7 @@ bob@dylan:~$
 
 **Requirements:**
 
-* You should be able to run the test suite using npm test api.test.js
+* You should be able to run the test suite using `npm test api.test.js`
 * Every test should pass without any warning
 * Your server should not display any error
 

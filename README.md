@@ -21,6 +21,7 @@ This repository consists of Backend JavaScript projects done with [ALX Africa](h
 - [0x03](./0x03-ES6_data_manipulation) : Map, filter and reduce.
 - [0x04](./0x04-TypeScript) : Types, Interfaces, Classes, Functions.
 - [0x05](./0x05-Node_JS_basic) : Use NodeJS modules, Nodemon to develop faster.
+- [0x06](./0x06-unittests_in_js) : How to use Mocha to write a test suite, Unit testing with Async functions.
 
 ## Access ℹ️
 You can access everything in here by [forking](https://docs.github.com/en/get-started/quickstart/fork-a-repo) and then [cloning](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) this repository.

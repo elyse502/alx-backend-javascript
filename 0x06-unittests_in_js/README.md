@@ -227,13 +227,159 @@ Hooks are useful functions that can be called before execute one or all tests in
 * You should use only one `spy` to complete this exercise
 * You should use a `beforeEach` and a `afterEach` hooks to complete this exercise
 
-## 
+## 6. Async tests with done: [6-payment_token.js](6-payment_token.js), [6-payment_token.test.js](6-payment_token.test.js)
+Look into how to support async testing, for example when waiting for the answer of an API or from a Promise
+
+**Create a new file `6-payment_token.js`:**
+
+* Create a new function named `getPaymentTokenFromAPI`
+* The function will take an argument called `success` (boolean)
+* When `success` is true, it should return a resolved promise with the object `{data: 'Successful response from the API' }`
+* Otherwise, the function is doing nothing.
+
+**Create a new file `6-payment_token.test.js` and write a test suite named `getPaymentTokenFromAPI`**
+
+* How to test the result of `getPaymentTokenFromAPI(true)`?
+
+**Tips:**
+
+* You should be extremely careful when working with async testing. Without calling `done` properly, your test could be always passing even if what you are actually testing is never executed
+
+**Requirements:**
+
+* You should be able to run the test suite using `npm test 6-payment_token.test.js`
+* Every test should pass without any warning
+* You should use the `done` callback to execute this test
+
+## 7. Skip: [7-skip.test.js](7-skip.test.js)
+When you have a long list of tests, and you can’t figure out why a test is breaking, avoid commenting out a test, or removing it. **Skip** it instead, and file a ticket to come back to it as soon as possible
+
+You will be using this file, conveniently named `7-skip.test.js`
+```groovy
+const { expect } = require('chai');
+
+describe('Testing numbers', () => {
+  it('1 is equal to 1', () => {
+    expect(1 === 1).to.be.true;
+  });
+
+  it('2 is equal to 2', () => {
+    expect(2 === 2).to.be.true;
+  });
+
+  it('1 is equal to 3', () => {
+    expect(1 === 3).to.be.true;
+  });
+
+  it('3 is equal to 3', () => {
+    expect(3 === 3).to.be.true;
+  });
+
+  it('4 is equal to 4', () => {
+    expect(4 === 4).to.be.true;
+  });
+
+  it('5 is equal to 5', () => {
+    expect(5 === 5).to.be.true;
+  });
+
+  it('6 is equal to 6', () => {
+    expect(6 === 6).to.be.true;
+  });
+
+  it('7 is equal to 7', () => {
+    expect(7 === 7).to.be.true;
+  });
+});
+```
+**Using the file `7-skip.test.js`:**
+
+* Make the test suite pass **without** fixing or removing the failing test
+* `it` description **must stay** the same
+
+**Tips:**
+
+* Skipping is also very helpful when you only want to execute the test in a particular case (specific environment, or when an API is not behaving correctly)
+
+**Requirements:**
+
+* You should be able to run the test suite using `npm test 7-skip.test.js`
+* Every test should pass without any warning
+
+## 8. Basic Integration testing: [8-api/package.json](./8-api/package.json), [8-api/api.js](./8-api/api.js), [8-api/api.test.js](./8-api/api.test.js)
+In a folder `8-api` located at the root of the project directory, copy this `package.json` over.
+```groovy
+{
+  "name": "8-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "request": "^2.88.0",
+    "sinon": "^7.5.0"
+  }
+}
+```
+**Create a new file `api.js`:**
+
+* By using `express`, create an instance of `express` called `app`
+* Listen to port 7865 and log `API available on localhost port 7865` to the browser console when the `express` server is started
+* For the route `GET /`, return the message `Welcome to the payment system`
+
+**Create a new file `api.test.js`:**
+
+* Create one suite for the index page:
+  * Correct status code?
+  * Correct result?
+  * Other?
+
+**Server**
+
+Terminal 1
+```groovy
+bob@dylan:~/8-api$  node api.js
+API available on localhost port 7865
+````
+Terminal 2
+```groovy
+bob@dylan:~/8-api$  curl http://localhost:7865 ; echo ""
+Welcome to the payment system
+bob@dylan:~/8-api$  
+bob@dylan:~/8-api$ npm test api.test.js
+
+> 8-api@1.0.0 test /root/8-api
+> ./node_modules/mocha/bin/mocha "api.test.js"
 
 
 
+  Index page
+    ✓ ...
+    ✓ ...
+    ...
 
+  23 passing (256ms)
 
+bob@dylan:~/8-api$
+```
+**Tips:**
 
+* Since this is an integration test, you will need to have your node server running for the test to pass
+* You can use the module `request`
+
+**Requirements:**
+
+* You should be able to run the test suite using `npm test api.test.js`
+* Every test should pass without any warnings
 
 
 

@@ -559,7 +559,7 @@ close terminal and open new one:
 [![ES6](https://github.com/elyse502/alx-backend-javascript/assets/125453474/48034956-f9a5-4cc1-823b-f369a7da9367)](https://www.youtube.com/watch?v=y-202en_9NA)
 
 ## 3. In Task 8. Organize a complex HTTP server using Express
-Make sure that before you npm run dev, the database path is specified on the dev script inside `package.json` file. Like this 
+Make sure that before you **`npm run dev`**, the database path is specified on the dev script inside `package.json` file. Like this: 
 ```groovy
 "scripts": {
     "lint": "./node_modules/.bin/eslint",
